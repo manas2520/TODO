@@ -1,0 +1,98 @@
+<% layout('layouts/boilerplate') %>
+    <main class="row">
+        <h1 class="text-center mb-3">Priority-wise Sorted Tasks</h1>
+        <div class="col-6 offset-3">
+            <div class="card card-body">
+                <div class="btn-group">
+                    <button class="btn btn-danger" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#highPriority" aria-expanded="false" aria-controls="highPriority">
+                        High priority
+                    </button>
+                    <button class="btn btn-warning" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mediumPriority" aria-expanded="false" aria-controls="mediumPriority">
+                        Medium priority
+                    </button>
+                    <button class="btn btn-success" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#lowPriority" aria-expanded="false" aria-controls="lowPriority">
+                        Low priority
+                    </button>
+                    <button class="btn btn-info" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#completedTasks" aria-expanded="false" aria-controls="completedTasks">
+                        Completed Tasks
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="collapse mb-1 bg-danger" id="highPriority">
+            <div class="card card-body border-danger">
+                <% for(let task of tasks) {%>
+                    <% if(task.priority=='high' && task.isDone==false) {%>
+                        <div class="card mb-3 bg-danger text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= task.title %>
+                                </h5>
+                                <p>
+                                    <%= task.description %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } %>
+            </div>
+        </div>
+        <div class="collapse mb-1 bg-warning" id="mediumPriority">
+            <div class="card card-body border-warning">
+                <% for(let task of tasks) {%>
+                    <% if(task.priority=='medium' && task.isDone==false) {%>
+                        <div class="card mb-3 bg-warning text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= task.title %>
+                                </h5>
+                                <p>
+                                    <%= task.description %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } %>
+            </div>
+        </div>
+        <div class="collapse mb-1 bg-success" id="lowPriority">
+            <div class="card card-body border-success">
+                <% for(let task of tasks) {%>
+                    <% if(task.priority=='low' && task.isDone==false) {%>
+                        <div class="card mb-3 bg-success text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= task.title %>
+                                </h5>
+                                <p>
+                                    <%= task.description %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } %>
+            </div>
+        </div>
+        <div class="collapse mb-1 bg-primary" id="completedTasks">
+            <div class="card card-body border-primary">
+                <% for(let task of tasks) {%>
+                    <% if(task.isDone==true) {%>
+                        <div class="card mb-3 bg-primary text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= task.title %>
+                                </h5>
+                                <p>
+                                    <%= task.description %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } %>
+            </div>
+        </div>
+    </main>

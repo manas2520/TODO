@@ -1,0 +1,46 @@
+<% layout('layouts/boilerplate') %>
+    <main class="row">
+        <h1 class="text-center mb-3">Edit a Task</h1>
+        <div class="col-6 offset-3">
+            <form action="/tasks/<%= task._id %>/?_method=put" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="task[title]" placeholder="Task Title"
+                        value="<%= task.title %> ">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="task[description]"
+                        placeholder="Task Description" value="<%= task.description %> ">
+                </div>
+                <div class="mb-3">
+                    <label for="priority" class="form-label">Priority</label>
+                    <select class="form-select" aria-label="Default select example" name="task[priority]" id="priority">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <!-- TODO : try to implement priority selection using cool radio buttons  -->
+                <!-- <div class="text-center">
+                    <input type="radio" class="btn-check" name="high" id="danger-outlined" autocomplete="off"
+                        value="high">
+                    <label class="btn btn-outline-danger" for="danger-outlined">High</label>
+
+                    <input type="radio" class="btn-check" name="medium" id="warning-outlined" autocomplete="off"
+                        value="medium" checked>
+                    <label class="btn btn-outline-warning" for="warning-outlined">Medium</label>
+
+                    <input type="radio" class="btn-check" name="low" id="success-outlined" autocomplete="off"
+                        value="low">
+                    <label class="btn btn-outline-success" for="success-outlined">Low</label>
+                </div> -->
+
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>

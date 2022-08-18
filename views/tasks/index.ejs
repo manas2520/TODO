@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate') %>
+    <main class="row">
+        <h1 class="text-center mb-3">All Tasks</h1>
+        <% for(let task of tasks) {%>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= task.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= task.description %>
+                    </p>
+                    <a href="/tasks/<%= task._id %>/edit" class="card-link btn btn-info">Edit Task <span
+                            class="bi bi-pencil"></span></a>
+                    <form class="d-inline" action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete Task <span class="bi bi-trash"></span></button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
+    </main>
